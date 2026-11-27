@@ -1,0 +1,191 @@
+/* DealBeacon style — dark storefront, amber "deal" accent, dense card grid. */
+:root {
+  --bg: #14100c;
+  --surface: #1f1a15;
+  --surface-2: #2a231c;
+  --line: #3a3128;
+  --text: #f5efe6;
+  --muted: #c9bda9;
+  --accent: #ffb020;
+  --accent-ink: #241a00;
+  --green: #3ddc84;
+  --green-bg: #0e2f1c;
+  --blue: #7cc4ff;
+  --blue-bg: #10283f;
+  --red: #ff8a7a;
+  --red-bg: #3a1712;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+  background: #100d0a;
+}
+
+.brand {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.tagline { color: var(--muted); font-size: 14px; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px 40px; }
+
+.hero { padding: 26px 0 8px; }
+.hero h1 { font-size: 34px; line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.5px; }
+.hero-sub { color: var(--muted); max-width: 760px; margin: 0 0 8px; font-size: 17px; }
+.hero-stats { margin: 0; font-size: 15px; }
+.hero-stats strong { color: var(--accent); }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin: 20px 0 6px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.control { display: flex; flex-direction: column; gap: 5px; font-size: 13px; color: var(--muted); font-weight: 600; }
+.search-control { flex: 1 1 220px; }
+.control input, .control select {
+  font: inherit;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 10px;
+  min-width: 0;
+}
+.control input:focus, .control select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.result-count { flex: 1 1 100%; margin: 2px 0 0; color: var(--muted); font-size: 14px; }
+.result-count strong { color: var(--text); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.badge {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.signal-new-low { background: var(--green-bg); color: var(--green); border: 1px solid var(--green); }
+.signal-strong { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue); }
+.signal-routine { background: var(--red-bg); color: var(--red); border: 1px solid var(--red); }
+.pct { font-size: 20px; font-weight: 800; color: var(--accent); }
+
+.card-title { margin: 0; font-size: 17px; line-height: 1.3; }
+.card-title a { color: var(--text); text-decoration: none; }
+.card-title a:hover { color: var(--accent); text-decoration: underline; }
+.card-meta { margin: 0; color: var(--muted); font-size: 13px; font-weight: 600; }
+
+.card-prices { margin: 2px 0 0; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.price { font-size: 24px; font-weight: 800; }
+.price.big { font-size: 34px; }
+.was { color: var(--muted); text-decoration: line-through; font-size: 15px; }
+.was.big { font-size: 19px; }
+.saved { color: var(--green); font-weight: 700; font-size: 14px; }
+
+.card-note { margin: 0; font-size: 14px; color: var(--muted); }
+.card-checked { margin: 0; font-size: 12px; color: #9a8d78; }
+.card-actions { margin: 6px 0 0; display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.btn:hover { text-decoration: none; filter: brightness(1.08); }
+.btn-ghost { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+
+.empty { padding: 30px 10px; color: var(--muted); }
+
+.method { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+.method h2 { font-size: 20px; margin: 0 0 10px; }
+.method ol { margin: 0; padding-left: 22px; color: var(--muted); }
+.method li { margin-bottom: 6px; }
+.method li strong { color: var(--text); }
+.method-note { color: var(--muted); font-size: 14px; }
+
+.back { margin: 22px 0 0; }
+.detail { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; margin-top: 12px; }
+.detail-head { display: flex; gap: 12px; align-items: center; }
+.detail h1 { font-size: 28px; margin: 10px 0 4px; }
+.detail h2 { font-size: 18px; margin: 22px 0 6px; }
+.detail p { color: var(--muted); }
+.detail-meta { margin: 0; font-weight: 600; }
+.detail-prices { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 14px 0 0; }
+.detail-prices .price { color: var(--text); }
+.deal-code { color: var(--text); background: var(--surface-2); border: 1px dashed var(--accent); border-radius: 8px; padding: 10px 12px; }
+
+.compare { width: 100%; border-collapse: collapse; font-size: 15px; }
+.compare th, .compare td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--line); }
+.compare th { color: var(--muted); font-size: 13px; }
+.compare tr.cheapest td { background: var(--green-bg); font-weight: 700; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 18px 20px 26px;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 26px; }
+  .grid { grid-template-columns: 1fr; }
+  .controls { padding: 12px; }
+  .control { flex: 1 1 46%; }
+  .search-control { flex: 1 1 100%; }
+  .detail { padding: 16px; }
+  .compare { font-size: 13px; }
+}
